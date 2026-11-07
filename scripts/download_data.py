@@ -15,14 +15,14 @@ def prepare(source=None):
     destination = ROOT / 'data/raw/marketing_AB.csv'
     source = Path(source).expanduser().resolve() if source else destination
     if not source.is_file():
-        raise FileNotFoundError('Укажите исходный CSV: python scripts/download_data.py --csv "путь/к/marketing_AB.csv"')
+        raise FileNotFoundError('Нужно указать CSV: python scripts/download_data.py --csv "путь/к/marketing_AB.csv"')
     frame, metadata = load_data(source)
     destination.parent.mkdir(parents=True, exist_ok=True)
     if source.resolve() != destination.resolve():
         shutil.copyfile(source, destination)
     checksum = hashlib.sha256(destination.read_bytes()).hexdigest()
     if checksum != metadata['source_sha256']:
-        raise RuntimeError('Файл изменился во время подготовки; повторите операцию')
+        raise RuntimeError('Файл изменился во время подготовки. Нужно повторить операцию.')
     manifest = {'dataset':'faviovaz/marketing-ab-testing',
                 'source_url':'https://www.kaggle.com/datasets/faviovaz/marketing-ab-testing',
                 'file':'marketing_AB.csv', 'input_method':'user-provided local CSV',

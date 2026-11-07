@@ -1,0 +1,20 @@
+{
+  "engine": "PostgreSQL 18",
+  "first_load": {
+    "batch_id": 1,
+    "status": "skipped",
+    "rows": 588101,
+    "reason": "Identical source hash already loaded"
+  },
+  "second_load": {
+    "batch_id": 1,
+    "status": "skipped",
+    "rows": 588101,
+    "reason": "Identical source hash already loaded"
+  },
+  "stored_users": 588101,
+  "group_totals_match_pandas": true,
+  "sql_questions_executed": 6,
+  "invalid_batch_logged_and_rolled_back": true,
+  "database": "marketing_ab_portfolio"
+}

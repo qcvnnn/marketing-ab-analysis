@@ -1,0 +1,106 @@
+{
+  "quality": {
+    "source_sha256": "de6ce8def1a6559e9e5ab364fce07cfe2e84f02dd407c3586eea55743c7e17f2",
+    "raw_rows": 588101,
+    "raw_columns": [
+      "Unnamed: 0",
+      "user id",
+      "test group",
+      "converted",
+      "total ads",
+      "most ads day",
+      "most ads hour"
+    ],
+    "dropped_columns": [
+      "Unnamed: 0"
+    ],
+    "validated_rows": 588101,
+    "duplicate_user_ids": 0,
+    "missing_values": {
+      "user_id": 0,
+      "test_group": 0,
+      "converted": 0,
+      "total_ads": 0,
+      "most_ads_day": 0,
+      "most_ads_hour": 0
+    },
+    "max_total_ads": 2065,
+    "transformations": [
+      "Removed verified sequential CSV export index; normalized column names and booleans."
+    ],
+    "excluded_rows": 0
+  },
+  "effect": {
+    "control_rate": 0.01785410644448223,
+    "test_rate": 0.025546559636683747,
+    "difference": 0.007692453192201517,
+    "ci_low": 0.005873422353060636,
+    "ci_high": 0.009360028811460754,
+    "relative_lift": 0.43085064022225833,
+    "z_statistic": 7.3700781265454145,
+    "p_value": 1.7052807161559727e-13,
+    "alpha": 0.05,
+    "method": "two-sided pooled z-test; Newcombe-Wilson confidence interval",
+    "assumptions": "Independent user-level observations and valid group assignment; provenance is incomplete."
+  },
+  "observed_test_to_control_ratio": 24.00004250977725,
+  "groups": [
+    {
+      "test_group": "psa",
+      "users": 23524,
+      "conversions": 420,
+      "conversion_rate": 0.01785410644448223,
+      "ci_low": 0.016238943989596074,
+      "ci_high": 0.019626711612411318
+    },
+    {
+      "test_group": "ad",
+      "users": 564577,
+      "conversions": 14423,
+      "conversion_rate": 0.025546559636683747,
+      "ci_low": 0.02513821650599992,
+      "ci_high": 0.025961359215123686
+    }
+  ],
+  "future_planning_scenarios": [
+    {
+      "assumed_control_rate": 0.02,
+      "absolute_mde": 0.005,
+      "target_power": 0.8,
+      "test_to_control_ratio": 1.0,
+      "alpha": 0.05,
+      "control_users": 13809,
+      "test_users": 13809,
+      "note": "Normal approximation for a future experiment; not observed/post-hoc power."
+    },
+    {
+      "assumed_control_rate": 0.02,
+      "absolute_mde": 0.005,
+      "target_power": 0.8,
+      "test_to_control_ratio": 24.00004250977725,
+      "alpha": 0.05,
+      "control_users": 7463,
+      "test_users": 179113,
+      "note": "Normal approximation for a future experiment; not observed/post-hoc power."
+    }
+  ],
+  "aa_simulation": {
+    "repeats": 10000,
+    "users_per_group": 10000,
+    "assumed_rate": 0.02,
+    "seed": 2026,
+    "alpha": 0.05,
+    "false_positive_rate": 0.053,
+    "rate_ci": [
+      0.048778160614320124,
+      0.05756513392906473
+    ],
+    "note": "Synthetic null simulations, not an A/A test on the historical dataset."
+  },
+  "limits": [
+    "Historical group allocation and randomization protocol are not independently verified.",
+    "No calendar timeline, revenue, costs or pre-treatment covariates.",
+    "Exposure-derived attributes are post-treatment/descriptive, not causal segments.",
+    "No SRM claim: intended allocation ratio was not documented."
+  ]
+}
